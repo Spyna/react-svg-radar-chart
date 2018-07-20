@@ -151,18 +151,18 @@ const content = [
 
 const App = () => (
   <div className="container">
-    <h1>React Svg Radar Chart</h1>
     <h2>
       <a
         href="https://github.com/Spyna/react-svg-radar-chart"
         title="Github repo of this project"
       >
         <img
-          src="demo.svg"
+          src="./icon.png" width="100"
           alt="svg radar chart created with React Svg Radar Chart "
         />
       </a>
     </h2>
+    <h1>React Svg Radar Chart</h1>
     <p>Generate SVG radar charts with React.</p>
     <p>
       <strong>react-svg-radar-chart</strong> is a lightweight library to create
