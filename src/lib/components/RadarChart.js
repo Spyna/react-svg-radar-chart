@@ -3,7 +3,6 @@ import radar from './radar';
 
 import '../radar.css';
 
-
 const noSmoothing = points => {
   let d = 'M' + points[0][0].toFixed(4) + ',' + points[0][1].toFixed(4);
   for (let i = 1; i < points.length; i++) {

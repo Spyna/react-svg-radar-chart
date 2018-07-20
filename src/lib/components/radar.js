@@ -113,4 +113,3 @@ const render = (captions, chartData, options = {}) => {
 };
 
 export default render;
-

@@ -16,9 +16,17 @@ npm install react-svg-radar-chart
 
 ## Demo and Examples
 
-Demo source code could be found here: https://github.com/Spyna/react-svg-radar-chart/tree/master/src/demo. 
+### Running demo
 
-To run a demo on your laptop: 
+ could be found here: https://spyna.github.io/react-svg-radar-chart/
+
+### Source code 
+ 
+ could be found here: https://github.com/Spyna/react-svg-radar-chart/tree/master/src/demo. 
+
+### Run locally
+
+
 
 ```shell 
 git clone https://github.com/Spyna/react-svg-radar-chart.git
