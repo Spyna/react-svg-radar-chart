@@ -16,15 +16,15 @@ const content = [
       // data
       {
         data: { battery: 0.7, design: 1, useful: 0.9 },
-        meta: { color: '#58FCEC' }
+        meta: { color: '#edc951' }
       },
       {
         data: { battery: 1, design: 0.6, useful: 0.8 },
-        meta: { color: '#A2C7E5' }
+        meta: { color: '#cc333f' }
       },
       {
         data: { battery: 0.8, design: 0.7, useful: 0.6 },
-        meta: { color: '#FF99C9' }
+        meta: { color: '#00a0b0' }
       }
     ]
   },
@@ -44,11 +44,11 @@ const content = [
       },
       {
         data: { battery: 1, design: 0.6, useful: 0.8 },
-        meta: { color: '#A2C7E5' }
+        meta: { color: '#cc333f' }
       },
       {
         data: { battery: 0.8, design: 0.7, useful: 0.6 },
-        meta: { color: '#FF99C9' }
+        meta: { color: '#00a0b0' }
       }
     ]
   },
@@ -72,11 +72,11 @@ const content = [
           speed: 0.67,
           weight: 0.8
         },
-        meta: { color: '#58FCEC' }
+        meta: { color: '#edc951' }
       },
       {
         data: { battery: 1, design: 0.6, useful: 0.8, speed: 0.9, weight: 0.7 },
-        meta: { color: '#A2C7E5' }
+        meta: { color: '#cc333f' }
       },
       {
         data: {
@@ -86,7 +86,7 @@ const content = [
           speed: 0.8,
           weight: 0.6
         },
-        meta: { color: '#FF99C9' }
+        meta: { color: '#00a0b0' }
       }
     ]
   },
@@ -110,7 +110,7 @@ const content = [
           speed: 0.67,
           weight: 0.8
         },
-        meta: { color: '#58FCEC' }
+        meta: { color: '#edc951' }
       }
     ]
   },
@@ -134,7 +134,7 @@ const content = [
           speed: 0.67,
           weight: 0.8
         },
-        meta: { color: '#58FCEC' }
+        meta: { color: '#edc951' }
       }
     ],
     options: {
@@ -156,10 +156,10 @@ const App = () => (
         href="https://github.com/Spyna/react-svg-radar-chart"
         title="Github repo of this project"
       >
-        <img
-          src="./icon.png" width="100"
-          alt="svg radar chart created with React Svg Radar Chart "
-        />
+        <img 
+          src="./icon.png" width="100" 
+          alt="svg radar chart created with React Svg Radar Chart " 
+        /> 
       </a>
     </h2>
     <h1>React Svg Radar Chart</h1>
