@@ -1,0 +1,26 @@
+/* chart */
+.shape {
+	fill-opacity: .3;
+}
+
+.shape:hover {
+	fill-opacity: .65;
+	z-index: 100;
+}
+
+.scale {
+	fill: #FAFAFA;
+	stroke: #999;
+	stroke-width: .2
+}
+
+.axis {
+	stroke: #555;
+	stroke-width: .2
+}
+
+.caption {
+	fill: #444;
+	font-weight: 400;
+	text-shadow: 1px 1px 0 #fff
+}
