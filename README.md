@@ -4,7 +4,7 @@
 
 Generate SVG radar charts with React.
 
-![an example](https://rawgit.com/derhuerst/svg-radar-chart/master/demo.gif)
+![an example](./demo.gif)
 
 Based on <a href="https://github.com/derhuerst/svg-radar-chart" target="_blank">svg-radar-chart</a>.
  
