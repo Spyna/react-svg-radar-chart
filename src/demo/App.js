@@ -156,10 +156,11 @@ const App = () => (
         href="https://github.com/Spyna/react-svg-radar-chart"
         title="Github repo of this project"
       >
-        <img 
-          src="./icon.png" width="100" 
-          alt="svg radar chart created with React Svg Radar Chart " 
-        /> 
+        <img
+          src="./icon.png"
+          width="100"
+          alt="svg radar chart created with React Svg Radar Chart "
+        />
       </a>
     </h2>
     <h1>React Svg Radar Chart</h1>
