@@ -146,7 +146,62 @@ const content = [
       scaleProps: () => ({ className: 'custom-scale', fill: 'none' }),
       shapeProps: () => ({ className: 'custom-shape' })
     }
-  }
+  },
+  {
+    name: 'more with custom options',
+    captions: {
+      // columns
+      battery: 'Battery Capacity',
+      design: 'Design',
+      useful: 'Usefulness',
+      speed: 'Speed',
+      weight: 'Weight'
+    },
+    chart: [
+      // data
+      {
+        data: {
+          battery: 0.7,
+          design: 0.8,
+          useful: 0.9,
+          speed: 0.67,
+          weight: 0.8
+        },
+        meta: { color: '#edc951' }
+      }
+    ],
+    options: {
+      axes: false, // show axes?
+      scales: 8, // how many circles?
+      captions: true, // show captions?
+      captionMargin: 12
+    }
+  },
+  {
+    name: 'with custom size',
+    captions: {
+      // columns
+      battery: 'Battery Capacity',
+      design: 'Design',
+      useful: 'Usefulness',
+      speed: 'Speed',
+      weight: 'Weight'
+    },
+    chart: [
+      // data
+      {
+        data: {
+          battery: 0.7,
+          design: 0.8,
+          useful: 0.9,
+          speed: 0.67,
+          weight: 0.8
+        },
+        meta: { color: '#edc951' }
+      }
+    ],
+    size: 450
+  },
 ];
 
 const App = () => (
@@ -184,6 +239,7 @@ const App = () => (
             captions={data.captions}
             data={data.chart}
             options={data.options}
+            size={data.size}
           />
           <div className="source-container">
             <h3>data</h3>

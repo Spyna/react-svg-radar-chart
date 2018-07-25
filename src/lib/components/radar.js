@@ -107,7 +107,6 @@ const render = (captions, chartData, options = {}) => {
     }
     groups.unshift(<g key={`poly-scales`}>{scales}</g>);
   }
-
   const delta = (options.size / 2).toFixed(4);
   return <g transform={`translate(${delta},${delta})`}>{groups}</g>;
 };

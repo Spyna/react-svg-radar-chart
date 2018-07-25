@@ -176,6 +176,16 @@ export default App;
 
 ```
 
+## Props 
+
+| Property | meaning | mandatory |
+| --- | --- |
+| captions | *object* the label on the chart | **yes** |
+| data | *array* the data to display | **yes** |
+| options | *object* custom options for the chart, see below | no |
+| size | *number* custom size, the default is 300 | no |
+
+
 ## Data format 
 
 the `data` property must be an array of object composed as following: 
@@ -266,10 +276,11 @@ const defaultOptions = {
 
 | Property | meaning |
 | --- | --- |
-| size | the size in pixels of the svg chart |
+| size | the size in pixels of the svg chart, default is 300, can use only if `size` props is not used |
 | axes | *true*/*false* show axes |
 | scales | *number* how many scale circles |
 | captions | *true*/*false* show captions |
+| captionMargin | *number* The margin of the svg, to fit captions |
 | zoomDistance | the distance of the zoom: 0.2 = closest | 
 | smoothing | the smoothing function |
 | axisProps | a function that take the *current caption name* as arguments and returns an object. All the property will be added to the *axis svg component*| 

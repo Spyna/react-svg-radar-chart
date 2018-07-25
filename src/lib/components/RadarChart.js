@@ -12,12 +12,13 @@ const noSmoothing = points => {
 };
 
 const defaultOptions = {
-  size: 200,
+  size: 300,
   axes: true, // show axes?
   scales: 3, // show scale circles?
   captions: true, // show captions?
   zoomDistance: 1.2, // where on the axes are the captions?
   smoothing: noSmoothing, // shape smoothing function
+  captionMargin: 10,
   axisProps: () => ({ className: 'axis' }),
   scaleProps: () => ({ className: 'scale', fill: 'none' }),
   shapeProps: () => ({ className: 'shape' }),
@@ -30,9 +31,14 @@ const defaultOptions = {
 };
 
 const RadarChart = props => {
-  const captionMargin = 10;
-  const { data, captions, options, size = defaultOptions.size } = props;
-  const chart = radar(captions, data, { ...defaultOptions, ...options });
+  const { data, captions, options } = props;
+  let { size } = props;
+  if (!size) {
+    size = defaultOptions.size;
+  }
+  const chartOptions = { ...defaultOptions, ...options, size };
+  const chart = radar(captions, data, chartOptions);
+  const captionMargin = chartOptions.captionMargin;
   return (
     <svg
       version="1"
