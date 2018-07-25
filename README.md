@@ -260,6 +260,7 @@ const defaultOptions = {
   axes: true, // show axes?
   scales: 3, // show scale circles?
   captions: true, // show captions?
+  captionMargin: 10
   zoomDistance: 1.2, // where on the axes are the captions?
   smoothing: noSmoothing, // shape smoothing function
   axisProps: () => ({ className: 'axis' }),
