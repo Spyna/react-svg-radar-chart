@@ -4,6 +4,8 @@
 
 Generate SVG radar charts with React.
 
+[![Build Status](https://travis-ci.org/Spyna/react-svg-radar-chart.svg?branch=master)](https://travis-ci.org/Spyna/react-svg-radar-chart)
+
 ![an example](./demo.gif)
 
 Based on <a href="https://github.com/derhuerst/svg-radar-chart" target="_blank">svg-radar-chart</a>.
