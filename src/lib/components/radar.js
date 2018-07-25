@@ -77,7 +77,7 @@ const caption = options => col => (
 
 const render = (captions, chartData, options = {}) => {
   if ('object' !== typeof captions || Array.isArray(captions)) {
-    throw new Error('meta must be an object');
+    throw new Error('caption must be an object');
   }
   if (!Array.isArray(chartData)) {
     throw new Error('data must be an array');
