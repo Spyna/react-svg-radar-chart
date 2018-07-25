@@ -178,8 +178,9 @@ export default App;
 
 ## Props 
 
+
 | Property | meaning | mandatory |
-| --- | --- |
+| --- | --- | --- |
 | captions | *object* the label on the chart | **yes** |
 | data | *array* the data to display | **yes** |
 | options | *object* custom options for the chart, see below | no |
@@ -260,6 +261,7 @@ const defaultOptions = {
   axes: true, // show axes?
   scales: 3, // show scale circles?
   captions: true, // show captions?
+  captionMargin: 10
   zoomDistance: 1.2, // where on the axes are the captions?
   smoothing: noSmoothing, // shape smoothing function
   axisProps: () => ({ className: 'axis' }),
