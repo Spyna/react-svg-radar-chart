@@ -3,5 +3,6 @@ node_js:
  - "node"
 script:
  - npm run test --coverage
- after_script:
+
+after_script:
   - "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
