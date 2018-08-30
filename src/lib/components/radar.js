@@ -69,7 +69,6 @@ const caption = options => col => (
     y={polarToY(col.angle, (options.size / 2) * 0.95).toFixed(4)}
     dy={(options.captionProps(col).fontSize || 10) / 2}
     {...options.captionProps(col)}
-    className="caption"
   >
     {col.caption}
   </text>
