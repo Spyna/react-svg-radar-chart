@@ -23,3 +23,5 @@ yarn-error.log*
 *.project
 /package-lock.json
 /yarn.lock
+
+\.coveralls\.yml

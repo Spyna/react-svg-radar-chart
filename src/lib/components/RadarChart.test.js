@@ -21,6 +21,26 @@ it('RadarChart renders without crashing', () => {
   ReactDOM.render(<RadarChart captions={captions} data={data} />, div);
 });
 
+it('renders the chart with a specified size', () => {
+  const div = document.createElement('div');
+
+  const data = [
+    {
+      data: {
+        battery: 0.7,
+        speed: 0.67
+      }
+    }
+  ];
+  const captions = {
+    battery: 'Battery Capacity',
+    speed: 'Speed'
+  };
+  const size = '800';
+  ReactDOM.render(<RadarChart captions={captions} data={data} size={size} />, div);
+  expect(div.querySelector('svg').getAttribute('width')).toBe(size);
+});
+
 it('RadarChart renders with custom options', () => {
   const div = document.createElement('div');
 
@@ -39,7 +59,7 @@ it('RadarChart renders with custom options', () => {
 
   const options = {
     captions: false,
-    axis: false,
+    axes: false,
     scales: 0,
     captionProps: () => ({
       className: 'caption',
@@ -49,6 +69,32 @@ it('RadarChart renders with custom options', () => {
   }
 
   ReactDOM.render(<RadarChart captions={captions} data={data} options={options} />, div);
+});
+
+it('RadarChart renders without axes', () => {
+  const div = document.createElement('div');
+
+  const data = [
+    {
+      data: {
+        battery: 0.7,
+        speed: 0.67
+      }
+    }
+  ];
+  const captions = {
+    battery: 'Battery Capacity',
+    speed: 'Speed'
+  };
+
+  const options = {
+    captions: false,
+    axes: false,
+  }
+
+  ReactDOM.render(<RadarChart captions={captions} data={data} options={options} />, div);
+  expect(div.querySelectorAll('.axis').length).toBe(0)
+
 });
 
 it('RadarChart renders without captions', () => {
@@ -67,15 +113,6 @@ it('RadarChart renders without captions', () => {
     battery: 'Battery Capacity',
     speed: 'Speed'
   };
-
-  const options = {
-    captionProps: () => ({
-      className: 'caption',
-      textAnchor: 'middle',
-      fontFamily: 'sans-serif'
-    }),
-    captions: false
-  }
 
   ReactDOM.render(<RadarChart data={data} captions={captions} />, div);
 });
