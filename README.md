@@ -4,13 +4,13 @@
 
 Generate SVG radar charts with React.
 
-[![Build Status](https://travis-ci.org/Spyna/react-svg-radar-chart.svg?branch=master)](https://travis-ci.org/Spyna/react-svg-radar-chart) 
+[![Build Status](https://travis-ci.org/Spyna/react-svg-radar-chart.svg?branch=master)](https://travis-ci.org/Spyna/react-svg-radar-chart)
 [![Coverage Status](https://coveralls.io/repos/github/Spyna/react-svg-radar-chart/badge.svg?branch=master)](https://coveralls.io/github/Spyna/react-svg-radar-chart?branch=master)
 
 ![an example](./demo.gif)
 
 Based on <a href="https://github.com/derhuerst/svg-radar-chart" target="_blank">svg-radar-chart</a>.
- 
+
 ## Installing
 
 ```shell
@@ -23,28 +23,28 @@ npm install react-svg-radar-chart
 
  could be found here: https://spyna.github.io/react-svg-radar-chart/
 
-### Source code 
- 
- could be found here: https://github.com/Spyna/react-svg-radar-chart/tree/master/src/demo. 
+### Source code
+
+ could be found here: https://github.com/Spyna/react-svg-radar-chart/tree/master/src/demo.
 
 ### Run locally
 
 
 
-```shell 
+```shell
 git clone https://github.com/Spyna/react-svg-radar-chart.git
 cd react-svg-radar-chart && npm install;
 npm start;
 
 ```
 
-## Usage 
+## Usage
 
 
 Import the `RadarChart` component and the default css file.
 
 ```js
-import RadarChart from 'react-svg-radar-chart'; 
+import RadarChart from 'react-svg-radar-chart';
 import 'react-svg-radar-chart/build/css/index.css'
 ```
 
@@ -82,7 +82,7 @@ const captions = {
       speed: 'Speed',
       weight: 'Weight'
     };
-    
+
 ```
 
 Use the component:
@@ -96,10 +96,10 @@ Use the component:
 
 ```
 
-Where: 
- 
+Where:
+
  * `captions` are the names that will be drawn on the svg.
- * `data` are the data that will be displayed. 
+ * `data` are the data that will be displayed.
  * `size` is the size of the svg in *pixels*
 
 Putting all togheter
@@ -143,7 +143,7 @@ class App extends React.Component {
       speed: 'Speed',
       weight: 'Weight'
     };
-  
+
     return (
       <div>
         <RadarChart
@@ -179,7 +179,7 @@ export default App;
 
 ```
 
-## Props 
+## Props
 
 
 | Property | meaning | mandatory |
@@ -190,9 +190,9 @@ export default App;
 | size | *number* custom size, the default is 300 | no |
 
 
-## Data format 
+## Data format
 
-the `data` property must be an array of object composed as following: 
+the `data` property must be an array of object composed as following:
 
 ```js
 const dataset1 = {
@@ -202,14 +202,14 @@ const dataset1 = {
 const data = [dataset1, dataset2, ..., datasetN]
 
 ```
-The `dataset` object must have: 
- * a property named `data`: an object with the data to display: `battery: 0.7`. The name of each property must be found in the `captions` object. 
- * a property named `meta`: an object with a `color` or `class` property to set the color or the class in the chart. 
+The `dataset` object must have:
+ * a property named `data`: an object with the data to display: `battery: 0.7`. The name of each property must be found in the `captions` object.
+ * a property named `meta`: an object with a `color` or `class` property to set the color or the class in the chart.
 
 
 ## Options, styles and defaults.
 
-You can: 
+You can:
 
 * Customize the color of the chart.
 * Use your own *stylesheet* to customize the style of the radar chart.
@@ -217,9 +217,9 @@ You can:
 
 
  ### Customize the color of the chart
- 
- When generating the `data` object you can use a `meta` property to set the *color* and the *class* of the shape. 
- 
+
+ When generating the `data` object you can use a `meta` property to set the *color* and the *class* of the shape.
+
  ```js
 const dataset1 = {
  data : {...},
@@ -232,7 +232,7 @@ const dataset2 = {
 ```
 ### Use your own *stylesheet* to customize the style of the radar chart.
 
-In the demo the `'react-svg-radar-chart/build/css/index.css'` is imported, but you can define you own if needed. 
+In the demo the `'react-svg-radar-chart/build/css/index.css'` is imported, but you can define you own if needed.
 
 If you want to use a custom stylesheet you have to implement these classes:
 
@@ -248,7 +248,7 @@ If you want to use a custom stylesheet you have to implement these classes:
 
 ### Pass some *options* to the `RadarChart` component
 
-The `RadarChart` component accepts a property named **options**. The default options are: 
+The `RadarChart` component accepts a property named **options**. The default options are:
 
 ```js
 const noSmoothing = points => {
@@ -264,7 +264,8 @@ const defaultOptions = {
   axes: true, // show axes?
   scales: 3, // show scale circles?
   captions: true, // show captions?
-  captionMargin: 10
+  captionMargin: 10,
+  dots: false, // show dots?
   zoomDistance: 1.2, // where on the axes are the captions?
   smoothing: noSmoothing, // shape smoothing function
   axisProps: () => ({ className: 'axis' }),
@@ -275,6 +276,11 @@ const defaultOptions = {
     textAnchor: 'middle',
     fontSize: 10,
     fontFamily: 'sans-serif'
+  }),
+  dotProps: () => ({
+    className: 'dot',
+    mouseEnter: (dot) => { console.log(dot) },
+    mouseLeave: (dot) => { console.log(dot) }
   })
 };
 ```
@@ -286,10 +292,12 @@ const defaultOptions = {
 | scales | *number* how many scale circles |
 | captions | *true*/*false* show captions |
 | captionMargin | *number* The margin of the svg, to fit captions |
-| zoomDistance | the distance of the zoom: 0.2 = closest | 
+| dots | *true*/*false* show dots |
+| zoomDistance | the distance of the zoom: 0.2 = closest |
 | smoothing | the smoothing function |
-| axisProps | a function that take the *current caption name* as arguments and returns an object. All the property will be added to the *axis svg component*| 
+| axisProps | a function that take the *current caption name* as arguments and returns an object. All the property will be added to the *axis svg component*|
 | scaleProps | a function that take the *value of the scales* as arguments and returns an object. All the property will be added to the *scale svg component*|
 | shapeProps | a function that take the *meta of the data* as arguments and returns an object. All the property will be added to the *shape svg component*|
 | captionProps |  a function that take the *current caption name* as arguments and returns an object. All the property will be added to the *text svg component*|
- 
+| dotProps |  a function that takes the *dot svg component* as arguments and returns an object. All properties will be added to the *dot svg component*. The `mouseEnter` function returns useful information like `key`, `value` and the index of the shape the dot is associated with. See the demo as example for using the information as a tooltip|
+

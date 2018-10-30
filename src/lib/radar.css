@@ -19,6 +19,18 @@
 	stroke-width: .2
 }
 
+.dot {
+  fill: white;
+  stroke: #e7e8e7;
+  r: 5;
+  transition: r .2s;
+}
+
+.dot:hover {
+  stroke: #bbb;
+  r: 8;
+}
+
 .caption {
 	fill: #444;
 	font-weight: 400;

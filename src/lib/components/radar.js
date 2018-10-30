@@ -24,6 +24,37 @@ const axis = options => (col, i) => (
   />
 );
 
+const dot = (columns, options) => (chartData, i) => {
+  const data = chartData.data;
+  const meta = chartData.meta || {};
+  const extraProps = options.dotProps(meta);
+  let mouseEnter = () => {};
+  let mouseLeave = () => {};
+  if (extraProps.mouseEnter) {
+    mouseEnter = extraProps.mouseEnter;
+  }
+  if (extraProps.mouseLeave) {
+    mouseLeave = extraProps.mouseLeave;
+  }
+  return columns.map(col => {
+    const val = data[col.key];
+    if ('number' !== typeof val) {
+      throw new Error(`Data set ${i} is invalid.`);
+    }
+
+    return (
+      <circle
+        key={`dot-${col.key}-${val}`}
+        cx={polarToX(col.angle, (val * options.chartSize) / 2)}
+        cy={polarToY(col.angle, (val * options.chartSize) / 2)}
+        className={[extraProps.className, meta.class].join(' ')}
+        onMouseEnter={() => mouseEnter({ key: col.key, value: val, idx: i })}
+        onMouseLeave={() => mouseLeave({})}
+      />
+    )
+  })
+};
+
 const shape = (columns, options) => (chartData, i) => {
   const data = chartData.data;
   const meta = chartData.meta || {};
@@ -95,6 +126,9 @@ const render = (captions, chartData, options = {}) => {
   ];
   if (options.captions) {
     groups.push(<g key={`poly-captions`}>{columns.map(caption(options))}</g>);
+  }
+  if (options.dots) {
+    groups.push(<g key={`g-dots`}>{chartData.map(dot(columns, options))}</g>);
   }
   if (options.axes) {
     groups.unshift(<g key={`group-axes`}>{columns.map(axis(options))}</g>);

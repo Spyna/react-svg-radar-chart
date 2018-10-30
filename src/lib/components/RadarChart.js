@@ -16,12 +16,18 @@ const defaultOptions = {
   axes: true, // show axes?
   scales: 3, // show scale circles?
   captions: true, // show captions?
+  dots: false, // show dots?
   zoomDistance: 1.2, // where on the axes are the captions?
   smoothing: noSmoothing, // shape smoothing function
   captionMargin: 10,
   axisProps: () => ({ className: 'axis' }),
   scaleProps: () => ({ className: 'scale', fill: 'none' }),
   shapeProps: () => ({ className: 'shape' }),
+  dotProps: () => ({
+    className: 'dot',
+    mouseEnter: (dot) => { console.log(dot) },
+    mouseLeave: (dot) => { console.log(dot) }
+  }),
   captionProps: () => ({
     className: 'caption',
     textAnchor: 'middle',
