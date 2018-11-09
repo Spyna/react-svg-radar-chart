@@ -51,8 +51,8 @@ const dot = (columns, options) => (chartData, i) => {
         onMouseEnter={() => mouseEnter({ key: col.key, value: val, idx: i })}
         onMouseLeave={() => mouseLeave({})}
       />
-    )
-  })
+    );
+  });
 };
 
 const shape = (columns, options) => (chartData, i) => {

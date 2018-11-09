@@ -3,11 +3,9 @@ import RadarChart from '../lib';
 
 import './App.css';
 
-
 class App extends Component {
-
-  constructor (props) {
-    super(props)
+  constructor(props) {
+    super(props);
 
     const content = [
       {
@@ -81,7 +79,13 @@ class App extends Component {
             meta: { color: '#edc951' }
           },
           {
-            data: { battery: 1, design: 0.6, useful: 0.8, speed: 0.9, weight: 0.7 },
+            data: {
+              battery: 1,
+              design: 0.6,
+              useful: 0.8,
+              speed: 0.9,
+              weight: 0.7
+            },
             meta: { color: '#cc333f' }
           },
           {
@@ -119,7 +123,13 @@ class App extends Component {
             meta: { color: '#edc951' }
           },
           {
-            data: { battery: 1, design: 0.6, useful: 0.8, speed: 0.9, weight: 0.7 },
+            data: {
+              battery: 1,
+              design: 0.6,
+              useful: 0.8,
+              speed: 0.9,
+              weight: 0.7
+            },
             meta: { color: '#cc333f' }
           },
           {
@@ -253,7 +263,7 @@ class App extends Component {
           }
         ],
         size: 450
-      },
+      }
     ];
 
     this.mousePos = [0, 0];
@@ -264,21 +274,21 @@ class App extends Component {
     };
   }
 
-  componentDidMount () {
+  componentDidMount() {
     document.addEventListener('mousemove', this.handleMouseMove);
   }
 
   // This is only used for the "with dots" example for
   // positioning the tooltip
-  handleMouseMove = (e) => {
+  handleMouseMove = e => {
     this.mousePos = [e.pageX, e.pageY];
-  }
+  };
 
-  handleToolTip = (dot) => {
+  handleToolTip = dot => {
     this.setState({ dot });
-  }
+  };
 
-  render () {
+  render() {
     const { content, dot } = this.state;
     return (
       <div className="container">
@@ -297,8 +307,8 @@ class App extends Component {
         <h1>React Svg Radar Chart</h1>
         <p>Generate SVG radar charts with React.</p>
         <p>
-          <strong>react-svg-radar-chart</strong> is a lightweight library to create
-          radar charts with React.
+          <strong>react-svg-radar-chart</strong> is a lightweight library to
+          create radar charts with React.
         </p>
         <div
           style={{
@@ -317,7 +327,7 @@ class App extends Component {
                 options={data.options}
                 size={data.size}
               />
-              { dot.key &&
+              {dot.key && (
                 <div
                   className="tooltip"
                   style={{ left: this.mousePos[0], top: this.mousePos[1] }}
@@ -326,7 +336,7 @@ class App extends Component {
                   <br />
                   <span>{`Num Chart: ${dot.idx}`}</span>
                 </div>
-              }
+              )}
               <div className="source-container">
                 <h3>data</h3>
                 <pre>data: {JSON.stringify(data.chart, null, ' ')}</pre>

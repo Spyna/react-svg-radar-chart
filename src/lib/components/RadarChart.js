@@ -24,9 +24,7 @@ const defaultOptions = {
   scaleProps: () => ({ className: 'scale', fill: 'none' }),
   shapeProps: () => ({ className: 'shape' }),
   dotProps: () => ({
-    className: 'dot',
-    mouseEnter: (dot) => { console.log(dot) },
-    mouseLeave: (dot) => { console.log(dot) }
+    className: 'dot'
   }),
   captionProps: () => ({
     className: 'caption',
