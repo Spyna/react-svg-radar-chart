@@ -3,7 +3,5 @@ import ReactDOM from 'react-dom';
 import RadarChart from './index';
 
 it('exports the module', () => {
-  
-  expect(RadarChart).not.toBeNull()
-  
-})
+  expect(RadarChart).not.toBeNull();
+});
