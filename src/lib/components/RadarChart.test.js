@@ -219,3 +219,34 @@ it('RadarChart renders with 2 dots', () => {
 
   expect(div.querySelectorAll('.testDot').length).toBe(2);
 });
+
+it('render with custom viewBox', () => {
+  const div = document.createElement('div');
+  const viewBox = '0 0 500 500';
+  const setViewBox = () => viewBox;
+  const data = [
+    {
+      data: {
+        battery: 0.7,
+        speed: 0.67
+      },
+      meta: {}
+    }
+  ];
+
+  const captions = {
+    battery: 'Battery Capacity',
+    speed: 'Speed'
+  };
+
+  const options = {
+    setViewBox
+  }
+
+  ReactDOM.render(
+    <RadarChart captions={captions} data={data} options={options} />,
+    div
+  );
+
+  expect(div.querySelectorAll(`svg[viewBox='${viewBox}']`).length).toBe(1);
+})
