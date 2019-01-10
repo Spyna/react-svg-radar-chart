@@ -267,6 +267,7 @@ const defaultOptions = {
   captionMargin: 10,
   dots: false, // show dots?
   zoomDistance: 1.2, // where on the axes are the captions?
+  setViewBox: (options) => `-${options.captionMargin} 0 ${options.size + options.captionMargin * 2} ${options.size}`, // custom viewBox ?
   smoothing: noSmoothing, // shape smoothing function
   axisProps: () => ({ className: 'axis' }),
   scaleProps: () => ({ className: 'scale', fill: 'none' }),
@@ -295,6 +296,7 @@ const defaultOptions = {
 | dots | *true*/*false* show dots |
 | zoomDistance | the distance of the zoom: 0.2 = closest |
 | smoothing | the smoothing function |
+| setViewBox | a function that take *options*' object as argument and returns viewBox as a string. ViewBox will be added to the *svg*|
 | axisProps | a function that take the *current caption name* as arguments and returns an object. All the property will be added to the *axis svg component*|
 | scaleProps | a function that take the *value of the scales* as arguments and returns an object. All the property will be added to the *scale svg component*|
 | shapeProps | a function that take the *meta of the data* as arguments and returns an object. All the property will be added to the *shape svg component*|
