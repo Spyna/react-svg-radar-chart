@@ -47,7 +47,6 @@ const RadarChart = (props) => {
   };
 
   const { setViewBox } = chartOptions;
-  const captionMargin = chartOptions.captionMargin;
   const chart = radar(captions, data, chartOptions);
 
   return (
