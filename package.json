@@ -1,6 +1,6 @@
 {
   "name": "react-svg-radar-chart",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "A reusable radar chart in SVG.",
   "main": "build/index.js",
   "scripts": {
@@ -29,7 +29,9 @@
   "bugs": {
     "url": "https://github.com/Spyna/react-svg-radar-chart/issues"
   },
-  "files": ["./build"],
+  "files": [
+    "./build"
+  ],
   "license": "ISC",
   "dependencies": {},
   "devDependencies": {
