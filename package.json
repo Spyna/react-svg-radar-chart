@@ -30,7 +30,8 @@
     "url": "https://github.com/Spyna/react-svg-radar-chart/issues"
   },
   "files": [
-    "./build"
+    "build/**.*",
+    "build/css/**.*"
   ],
   "license": "ISC",
   "dependencies": {},
