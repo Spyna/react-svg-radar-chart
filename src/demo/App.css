@@ -1,15 +1,15 @@
 /* page */
 .container {
-	text-align: center;
-	margin: 0 auto;
+  text-align: center;
+  margin: 0 auto;
 }
 
 .chart-container {
-	margin: 3px;
-	border: 1px solid #ccc;
-	border-radius: 10px;
-	padding: 5px;
-	text-align: center;
+  margin: 3px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  padding: 5px;
+  text-align: center;
 }
 
 .tooltip {
@@ -22,30 +22,45 @@
 }
 
 .code {
-	width: 100%;
-	border: 1px sollid #ccc;
+  width: 100%;
+  border: 1px sollid #ccc;
 }
 
 /* chart */
 
-
 .iphone {
-	fill: green;
-	stroke: green
+  fill: green;
+  stroke: green;
 }
 
 .custom-axis {
-	stroke: black;
+  stroke: black;
 }
 
 .custom-scale {
-	fill: #efefef;
-	stroke: black;
-	fill-opacity: .3
+  fill: #efefef;
+  stroke: black;
+  fill-opacity: 0.3;
 }
 .custom-shape {
-	stroke: white;
-	stroke-width: 2;
-	fill: #b0d6b0;
-	fill-opacity: .8;
+  stroke: white;
+  stroke-width: 2;
+  fill: #b0d6b0;
+  fill-opacity: 0.8;
+}
+
+.download-button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 5px 22px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.1rem;
+  cursor: pointer;
+  border-radius: 2px;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 2px 2px 5px 0px rgba(0, 0, 0, 0.75);
 }

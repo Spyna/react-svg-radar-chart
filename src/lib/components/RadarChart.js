@@ -2,7 +2,6 @@ import React from 'react';
 import '../radar.css';
 import radar from './radar';
 
-
 const noSmoothing = points => {
   let d = 'M' + points[0][0].toFixed(4) + ',' + points[0][1].toFixed(4);
   for (let i = 1; i < points.length; i++) {
@@ -11,7 +10,10 @@ const noSmoothing = points => {
   return d + 'z';
 };
 
-const setViewBox = (options) => `-${options.captionMargin} 0 ${options.size + options.captionMargin * 2} ${options.size}`
+const setViewBox = options =>
+  `-${options.captionMargin} 0 ${options.size + options.captionMargin * 2} ${
+    options.size
+  }`;
 
 const defaultOptions = {
   size: 300,
@@ -37,13 +39,13 @@ const defaultOptions = {
   })
 };
 
-const RadarChart = (props) => {
-  const { data, captions, options, size = defaultOptions.size } = props;
+const RadarChart = props => {
+  const { data, captions, options, size = defaultOptions.size, id } = props;
 
   const chartOptions = {
     ...defaultOptions,
     ...options,
-    size,
+    size
   };
 
   const { setViewBox } = chartOptions;
@@ -56,6 +58,7 @@ const RadarChart = (props) => {
       width={size}
       height={size}
       viewBox={setViewBox(chartOptions)}
+      id={id}
     >
       {chart}
     </svg>

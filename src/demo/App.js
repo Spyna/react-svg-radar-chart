@@ -2,272 +2,21 @@ import React, { Component } from 'react';
 import RadarChart from '../lib';
 
 import './App.css';
+import content from './demo-data.js';
+
+function downloadURI(uri, name) {
+  let link = document.createElement('a');
+  link.download = name;
+  link.href = uri;
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 
 class App extends Component {
   constructor(props) {
     super(props);
-
-    const content = [
-      {
-        name: 'with color',
-        captions: {
-          // columns
-          battery: 'Battery Capacity',
-          design: 'Design',
-          useful: 'Usefulness'
-        },
-        chart: [
-          // data
-          {
-            data: { battery: 0.7, design: 1, useful: 0.9 },
-            meta: { color: '#edc951' }
-          },
-          {
-            data: { battery: 1, design: 0.6, useful: 0.8 },
-            meta: { color: '#cc333f' }
-          },
-          {
-            data: { battery: 0.8, design: 0.7, useful: 0.6 },
-            meta: { color: '#00a0b0' }
-          }
-        ]
-      },
-      {
-        name: 'with class name',
-        captions: {
-          // columns
-          battery: 'Battery Capacity',
-          design: 'Design',
-          useful: 'Usefulness'
-        },
-        chart: [
-          // data
-          {
-            data: { battery: 0.7, design: 1, useful: 0.9 },
-            meta: { class: 'iphone' }
-          },
-          {
-            data: { battery: 1, design: 0.6, useful: 0.8 },
-            meta: { color: '#cc333f' }
-          },
-          {
-            data: { battery: 0.8, design: 0.7, useful: 0.6 },
-            meta: { color: '#00a0b0' }
-          }
-        ]
-      },
-      {
-        name: 'with more data',
-        captions: {
-          // columns
-          battery: 'Battery Capacity',
-          design: 'Design',
-          useful: 'Usefulness',
-          speed: 'Speed',
-          weight: 'Weight'
-        },
-        chart: [
-          // data
-          {
-            data: {
-              battery: 0.7,
-              design: 1,
-              useful: 0.9,
-              speed: 0.67,
-              weight: 0.8
-            },
-            meta: { color: '#edc951' }
-          },
-          {
-            data: {
-              battery: 1,
-              design: 0.6,
-              useful: 0.8,
-              speed: 0.9,
-              weight: 0.7
-            },
-            meta: { color: '#cc333f' }
-          },
-          {
-            data: {
-              battery: 0.8,
-              design: 0.7,
-              useful: 0.6,
-              speed: 0.8,
-              weight: 0.6
-            },
-            meta: { color: '#00a0b0' }
-          }
-        ]
-      },
-      {
-        name: 'with dots',
-        captions: {
-          // columns
-          battery: 'Battery Capacity',
-          design: 'Design',
-          useful: 'Usefulness',
-          speed: 'Speed',
-          weight: 'Weight'
-        },
-        chart: [
-          // data
-          {
-            data: {
-              battery: 0.7,
-              design: 1,
-              useful: 0.9,
-              speed: 0.67,
-              weight: 0.8
-            },
-            meta: { color: '#edc951' }
-          },
-          {
-            data: {
-              battery: 1,
-              design: 0.6,
-              useful: 0.8,
-              speed: 0.9,
-              weight: 0.7
-            },
-            meta: { color: '#cc333f' }
-          },
-          {
-            data: {
-              battery: 0.8,
-              design: 0.7,
-              useful: 0.6,
-              speed: 0.8,
-              weight: 0.6
-            },
-            meta: { color: '#00a0b0' }
-          }
-        ],
-        options: {
-          dots: true,
-          dotProps: () => ({
-            className: 'dot',
-            mouseEnter: this.handleToolTip,
-            mouseLeave: this.handleToolTip
-          })
-        }
-      },
-      {
-        name: 'with single data',
-        captions: {
-          // columns
-          battery: 'Battery Capacity',
-          design: 'Design',
-          useful: 'Usefulness',
-          speed: 'Speed',
-          weight: 'Weight'
-        },
-        chart: [
-          // data
-          {
-            data: {
-              battery: 0.7,
-              design: 0.8,
-              useful: 0.9,
-              speed: 0.67,
-              weight: 0.8
-            },
-            meta: { color: '#edc951' }
-          }
-        ]
-      },
-      {
-        name: 'with custom options',
-        captions: {
-          // columns
-          battery: 'Battery Capacity',
-          design: 'Design',
-          useful: 'Usefulness',
-          speed: 'Speed',
-          weight: 'Weight'
-        },
-        chart: [
-          // data
-          {
-            data: {
-              battery: 0.7,
-              design: 0.8,
-              useful: 0.9,
-              speed: 0.67,
-              weight: 0.8
-            },
-            meta: { color: '#edc951' }
-          }
-        ],
-        options: {
-          axes: true, // show axes?
-          scales: 5, // how many circles?
-          captions: false, // show captions?
-          zoomDistance: 0.75, // 0.1 to 1?
-          axisProps: () => ({ className: 'custom-axis' }),
-          scaleProps: () => ({ className: 'custom-scale', fill: 'none' }),
-          shapeProps: () => ({ className: 'custom-shape' })
-        }
-      },
-      {
-        name: 'more with custom options',
-        captions: {
-          // columns
-          battery: 'Battery Capacity',
-          design: 'Design',
-          useful: 'Usefulness',
-          speed: 'Speed',
-          weight: 'Weight'
-        },
-        chart: [
-          // data
-          {
-            data: {
-              battery: 0.7,
-              design: 0.8,
-              useful: 0.9,
-              speed: 0.67,
-              weight: 0.8
-            },
-            meta: { color: '#edc951' }
-          }
-        ],
-        options: {
-          axes: false, // show axes?
-          scales: 8, // how many circles?
-          captions: true, // show captions?
-          captionMargin: 12
-        }
-      },
-      {
-        name: 'with custom size',
-        captions: {
-          // columns
-          battery: 'Battery Capacity',
-          design: 'Design',
-          useful: 'Usefulness',
-          speed: 'Speed',
-          weight: 'Weight'
-        },
-        chart: [
-          // data
-          {
-            data: {
-              battery: 0.7,
-              design: 0.8,
-              useful: 0.9,
-              speed: 0.67,
-              weight: 0.8
-            },
-            meta: { color: '#edc951' }
-          }
-        ],
-        size: 450
-      }
-    ];
-
     this.mousePos = [0, 0];
-
     this.state = {
       content,
       dot: {}
@@ -286,6 +35,14 @@ class App extends Component {
 
   handleToolTip = dot => {
     this.setState({ dot });
+  };
+
+  downloadImage = imageId => event => {
+    const imageElement = document.getElementById(imageId).outerHTML;
+    const encoded = encodeURIComponent(imageElement);
+    const header = 'data:image/svg+xml,';
+    const dataUrl = header + encoded;
+    downloadURI(dataUrl, 'image.svg');
   };
 
   render() {
@@ -318,14 +75,22 @@ class App extends Component {
             justifyContent: 'center'
           }}
         >
-          {content.map((data, i) => (
-            <div className="chart-container" key={`${i}-${data.name}`}>
+          {content.map((data, index) => (
+            <div className="chart-container" key={`${index}-${data.name}`}>
               <h2>{data.name}</h2>
+              <button
+                className="download-button"
+                onClick={this.downloadImage(`chart-${index}`)}
+              >
+                download image
+              </button>
+              <br />
               <RadarChart
                 captions={data.captions}
                 data={data.chart}
                 options={data.options}
                 size={data.size}
+                id={`chart-${index}`}
               />
               {dot.key && (
                 <div

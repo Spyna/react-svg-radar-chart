@@ -241,7 +241,7 @@ it('render with custom viewBox', () => {
 
   const options = {
     setViewBox
-  }
+  };
 
   ReactDOM.render(
     <RadarChart captions={captions} data={data} options={options} />,
@@ -249,4 +249,4 @@ it('render with custom viewBox', () => {
   );
 
   expect(div.querySelectorAll(`svg[viewBox='${viewBox}']`).length).toBe(1);
-})
+});
