@@ -42,7 +42,7 @@ class App extends Component {
     const encoded = encodeURIComponent(imageElement);
     const header = 'data:image/svg+xml,';
     const dataUrl = header + encoded;
-    downloadURI(dataUrl, 'image.svg');
+    downloadURI(dataUrl, `image-${imageId}.svg`);
   };
 
   render() {
