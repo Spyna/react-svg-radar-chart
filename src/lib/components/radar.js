@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 const polarToX = (angle, distance) => Math.cos(angle - Math.PI / 2) * distance;
 
@@ -6,8 +6,8 @@ const polarToY = (angle, distance) => Math.sin(angle - Math.PI / 2) * distance;
 
 const points = points => {
   return points
-    .map(point => point[0].toFixed(4) + "," + point[1].toFixed(4))
-    .join(" ");
+    .map(point => point[0].toFixed(4) + ',' + point[1].toFixed(4))
+    .join(' ');
 };
 
 const axis = options => (col, i) => (
@@ -51,7 +51,7 @@ const dot = (columns, options) => (chartData, i) => {
   }
   return columns.map(col => {
     const val = data[col.key];
-    if ("number" !== typeof val) {
+    if ('number' !== typeof val) {
       throw new Error(`Data set ${i} is invalid.`);
     }
 
@@ -60,7 +60,7 @@ const dot = (columns, options) => (chartData, i) => {
         key={`dot-${col.key}-${val}`}
         cx={polarToX(col.angle, (val * options.chartSize) / 2)}
         cy={polarToY(col.angle, (val * options.chartSize) / 2)}
-        className={[extraProps.className, meta.class].join(" ")}
+        className={[extraProps.className, meta.class].join(' ')}
         onMouseEnter={() => mouseEnter({ key: col.key, value: val, idx: i })}
         onMouseLeave={() => mouseLeave({})}
         {...extraPropsSvg}
@@ -79,7 +79,7 @@ const shape = (columns, options) => (chartData, i) => {
       d={options.smoothing(
         columns.map(col => {
           const val = data[col.key];
-          if ("number" !== typeof val) {
+          if ('number' !== typeof val) {
             throw new Error(`Data set ${i} is invalid.`);
           }
 
@@ -92,7 +92,7 @@ const shape = (columns, options) => (chartData, i) => {
       {...extraProps}
       stroke={meta.color}
       fill={meta.color}
-      className={[extraProps.className, meta.class].join(" ")}
+      className={[extraProps.className, meta.class].join(' ')}
     />
   );
 };
@@ -120,11 +120,11 @@ const caption = options => col => (
 );
 
 const render = (captions, chartData, options = {}) => {
-  if ("object" !== typeof captions || Array.isArray(captions)) {
-    throw new Error("caption must be an object");
+  if ('object' !== typeof captions || Array.isArray(captions)) {
+    throw new Error('caption must be an object');
   }
   if (!Array.isArray(chartData)) {
-    throw new Error("data must be an array");
+    throw new Error('data must be an array');
   }
   options.chartSize = options.size / options.zoomDistance;
 
