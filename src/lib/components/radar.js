@@ -5,13 +5,21 @@ const polarToX = (angle, distance) => Math.cos(angle - Math.PI / 2) * distance;
 const polarToY = (angle, distance) => Math.sin(angle - Math.PI / 2) * distance;
 
 const points = points => {
-  return points.map(point => point[0].toFixed(4) + "," + point[1].toFixed(4)).join(" ");
+  return points
+    .map(point => point[0].toFixed(4) + "," + point[1].toFixed(4))
+    .join(" ");
 };
 
 const axis = options => (col, i) => (
   <polyline
     key={`poly-axis-${i}`}
-    points={points([[0, 0], [polarToX(col.angle, options.chartSize / 2), polarToY(col.angle, options.chartSize / 2)]])}
+    points={points([
+      [0, 0],
+      [
+        polarToX(col.angle, options.chartSize / 2),
+        polarToY(col.angle, options.chartSize / 2)
+      ]
+    ])}
     {...options.axisProps(col)}
   />
 );
@@ -75,7 +83,10 @@ const shape = (columns, options) => (chartData, i) => {
             throw new Error(`Data set ${i} is invalid.`);
           }
 
-          return [polarToX(col.angle, (val * options.chartSize) / 2), polarToY(col.angle, (val * options.chartSize) / 2)];
+          return [
+            polarToX(col.angle, (val * options.chartSize) / 2),
+            polarToY(col.angle, (val * options.chartSize) / 2)
+          ];
         })
       )}
       {...extraProps}
@@ -86,7 +97,15 @@ const shape = (columns, options) => (chartData, i) => {
   );
 };
 
-const scale = (options, value) => <circle key={`circle-${value}`} cx={0} cy={0} r={(value * options.chartSize) / 2} {...options.scaleProps(value)} />;
+const scale = (options, value) => (
+  <circle
+    key={`circle-${value}`}
+    cx={0}
+    cy={0}
+    r={(value * options.chartSize) / 2}
+    {...options.scaleProps(value)}
+  />
+);
 
 const caption = options => col => (
   <text
@@ -94,7 +113,8 @@ const caption = options => col => (
     x={polarToX(col.angle, (options.size / 2) * 0.95).toFixed(4)}
     y={polarToY(col.angle, (options.size / 2) * 0.95).toFixed(4)}
     dy={(options.captionProps(col).fontSize || 10) / 2}
-    {...options.captionProps(col)}>
+    {...options.captionProps(col)}
+  >
     {col.caption}
   </text>
 );
@@ -115,7 +135,9 @@ const render = (captions, chartData, options = {}) => {
       angle: (Math.PI * 2 * i) / all.length
     };
   });
-  const groups = [<g key={`g-groups}`}>{chartData.map(shape(columns, options))}</g>];
+  const groups = [
+    <g key={`g-groups}`}>{chartData.map(shape(columns, options))}</g>
+  ];
   if (options.captions) {
     groups.push(<g key={`poly-captions`}>{columns.map(caption(options))}</g>);
   }
