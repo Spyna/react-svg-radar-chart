@@ -77,7 +77,6 @@ const shape = (columns, options) => (chartData, i) => {
   if (!meta.fill) {
     meta.fill = meta.color;
   }
-  console.log('meta', meta, 'extraProps', extraProps);
   if (meta.strokeWidth) {
     extraPropsSvg.strokeWidth = meta.strokeWidth;
   }
