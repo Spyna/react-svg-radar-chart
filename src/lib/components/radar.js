@@ -73,6 +73,19 @@ const shape = (columns, options) => (chartData, i) => {
   const data = chartData.data;
   const meta = chartData.meta || {};
   const extraProps = options.shapeProps(meta);
+  let extraPropsSvg = {};
+  if (!meta.fill) {
+    meta.fill = meta.color;
+  }
+  if (meta.strokeWidth) {
+    extraPropsSvg.strokeWidth = meta.strokeWidth;
+  }
+  if (meta.strokeDasharray) {
+    extraPropsSvg.strokeDasharray = meta.strokeDasharray;
+  }
+  if (meta.stokeLinecap) {
+    extraPropsSvg.stokeLinecap = meta.stokeLinecap;
+  }
   return (
     <path
       key={`shape-${i}`}
@@ -90,8 +103,9 @@ const shape = (columns, options) => (chartData, i) => {
         })
       )}
       {...extraProps}
+      {...extraPropsSvg}
       stroke={meta.color}
-      fill={meta.color}
+      fill={meta.fill}
       className={[extraProps.className, meta.class].join(' ')}
     />
   );
