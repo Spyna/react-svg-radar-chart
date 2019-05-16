@@ -1,6 +1,6 @@
 {
   "name": "react-svg-radar-chart",
-  "version": "1.2.2",
+  "version": "1.2.1",
   "description": "A reusable radar chart in SVG.",
   "main": "build/index.js",
   "scripts": {
