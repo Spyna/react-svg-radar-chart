@@ -83,8 +83,8 @@ const shape = (columns, options) => (chartData, i) => {
   if (meta.strokeDasharray) {
     extraPropsSvg.strokeDasharray = meta.strokeDasharray;
   }
-  if (meta.stokeLinecap) {
-    extraPropsSvg.stokeLinecap = meta.stokeLinecap;
+  if (meta.strokeLinecap) {
+    extraPropsSvg.strokeLinecap = meta.strokeLinecap;
   }
   return (
     <path
