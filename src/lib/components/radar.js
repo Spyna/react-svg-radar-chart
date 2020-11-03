@@ -28,6 +28,7 @@ const dot = (columns, options) => (chartData, i) => {
   const data = chartData.data;
   const meta = chartData.meta || {};
   const extraProps = options.dotProps(meta);
+  let extraPropsSvg = {};
   let mouseEnter = () => {};
   let mouseLeave = () => {};
   if (extraProps.mouseEnter) {
@@ -35,6 +36,18 @@ const dot = (columns, options) => (chartData, i) => {
   }
   if (extraProps.mouseLeave) {
     mouseLeave = extraProps.mouseLeave;
+  }
+  if (extraProps.r) {
+    extraPropsSvg.r = extraProps.r;
+  }
+  if (extraProps.fill) {
+    extraPropsSvg.fill = extraProps.fill;
+  }
+  if (extraProps.stoke) {
+    extraPropsSvg.stroke = extraProps.stroke;
+  }
+  if (extraProps.stokeWidth) {
+    extraPropsSvg.strokeWidth = extraProps.strokeWidth;
   }
   return columns.map(col => {
     const val = data[col.key];
@@ -50,6 +63,7 @@ const dot = (columns, options) => (chartData, i) => {
         className={[extraProps.className, meta.class].join(' ')}
         onMouseEnter={() => mouseEnter({ key: col.key, value: val, idx: i })}
         onMouseLeave={() => mouseLeave({})}
+        {...extraPropsSvg}
       />
     );
   });
@@ -59,6 +73,19 @@ const shape = (columns, options) => (chartData, i) => {
   const data = chartData.data;
   const meta = chartData.meta || {};
   const extraProps = options.shapeProps(meta);
+  let extraPropsSvg = {};
+  if (!meta.fill) {
+    meta.fill = meta.color;
+  }
+  if (meta.strokeWidth) {
+    extraPropsSvg.strokeWidth = meta.strokeWidth;
+  }
+  if (meta.strokeDasharray) {
+    extraPropsSvg.strokeDasharray = meta.strokeDasharray;
+  }
+  if (meta.strokeLinecap) {
+    extraPropsSvg.strokeLinecap = meta.strokeLinecap;
+  }
   return (
     <path
       key={`shape-${i}`}
@@ -76,8 +103,9 @@ const shape = (columns, options) => (chartData, i) => {
         })
       )}
       {...extraProps}
+      {...extraPropsSvg}
       stroke={meta.color}
-      fill={meta.color}
+      fill={meta.fill}
       className={[extraProps.className, meta.class].join(' ')}
     />
   );
