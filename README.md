@@ -282,7 +282,8 @@ const defaultOptions = {
     className: 'dot',
     mouseEnter: (dot) => { console.log(dot) },
     mouseLeave: (dot) => { console.log(dot) }
-  })
+  }),
+  rotation: 0
 };
 ```
 
@@ -302,4 +303,5 @@ const defaultOptions = {
 | shapeProps | a function that take the *meta of the data* as arguments and returns an object. All the property will be added to the *shape svg component*|
 | captionProps |  a function that take the *current caption name* as arguments and returns an object. All the property will be added to the *text svg component*|
 | dotProps |  a function that takes the *dot svg component* as arguments and returns an object. All properties will be added to the *dot svg component*. The `mouseEnter` function returns useful information like `key`, `value` and the index of the shape the dot is associated with. See the demo as example for using the information as a tooltip|
+| rotation | default `0`: The rotation (clockwise) in degrees. A number that indicates the rotation of the shape and captions. It must be beetween 0 and 360. Eg: `180` makes the chart upside down. `90` rotates the chart of 90 degrees. |
 
