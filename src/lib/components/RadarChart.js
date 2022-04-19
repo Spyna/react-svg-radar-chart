@@ -37,7 +37,9 @@ const defaultOptions = {
     fontSize: 10,
     fontFamily: 'sans-serif'
   }),
-  rotation: 0
+  rotation: 0,
+  wrapCaptionAt: 15,
+  captionLineHeight: 20,
 };
 
 const RadarChart = props => {

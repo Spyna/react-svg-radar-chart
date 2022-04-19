@@ -125,6 +125,26 @@ it('RadarChart renders without captions', () => {
   ReactDOM.render(<RadarChart data={data} captions={captions} />, div);
 });
 
+
+it('should wrap the caption when it is too long', () => {
+  const div = document.createElement('div');
+
+  const data = [
+    {
+      data: {
+        battery: 0.7,
+        speed: 0.67
+      }
+    }
+  ];
+  const captions = {
+    battery: 'Battery Capacity',
+    speed: 'A very long caption that should be wrapped'
+  };
+
+  ReactDOM.render(<RadarChart captions={captions} data={data} />, div);
+});
+
 it('RadarChart crashes when data are not in the right format', () => {
   const div = document.createElement('div');
 
