@@ -283,7 +283,9 @@ const defaultOptions = {
     mouseEnter: (dot) => { console.log(dot) },
     mouseLeave: (dot) => { console.log(dot) }
   }),
-  rotation: 0
+  rotation: 0,
+  wrapCaptionAt: 15,
+  captionLineHeight: 20,
 };
 ```
 
